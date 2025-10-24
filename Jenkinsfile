@@ -17,13 +17,13 @@ pipeline {
                 sh "npm run build"
             }
         }
-        stage{
+        stage('test'){
             parallel {
-                stage('test') {
+                stage('unit test') {
                     agent {
                         docker{
                             image 'node:22-alpine'
-                            reuseNode true-
+                            reuseNode true
                         }
                     }
                     steps{
